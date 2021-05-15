@@ -56,6 +56,8 @@ export default {
                 id: this.addedElement,
                 name : this.addedElement
             });
+
+            this.sortedElement = {};
         },
         sortsElements() {
             /* Get a random element from the elements array and assigne it to the sortedElement object presents in data() */
@@ -64,6 +66,7 @@ export default {
         emptyElementsArray() {
             // Empty completely the elements array
             this.elements = [];
+            this.sortedElement = {};
         }
     },
 }
