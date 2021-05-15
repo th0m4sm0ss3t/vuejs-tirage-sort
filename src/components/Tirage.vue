@@ -15,7 +15,7 @@
             </ul>
             <p v-if="elements.length > 0" class="main__addedElements__suppressAll" @click="emptyElementsArray">Supprimer tous les éléments ajoutés</p>
         </section>
-        <button class="main__btn" @click="sortsElements">Tirer au sort</button>
+        <button class="main__btn" @click="sortsElements" v-bind:class="{ disabled: elements.length < 2 }"  :disabled="elements.length < 2">Tirer au sort</button>
         <p class="main__sortedElement" v-if="sortedElement.name">L'élément <span class="main__sortedElement__elName">{{ sortedElement.name }}</span> a été tiré au sort !</p>
     </main>
 </template>
