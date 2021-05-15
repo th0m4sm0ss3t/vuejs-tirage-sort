@@ -13,6 +13,7 @@
             <ul class="main__addedElements__ul">
                 <li v-for="element in elements" :key="element.id" class="main__addedElements__el">{{ element.name }} <span class="main__addedElements__remove" @click="removeElement">⤬</span></li>
             </ul>
+            <p v-if="elements.length > 0" class="main__addedElements__suppressAll" @click="emptyElementsArray">Supprimer tous les éléments ajoutés</p>
         </section>
         <button class="main__btn" @click="sortsElements">Tirer au sort</button>
         <p class="main__sortedElement" v-if="sortedElement.name">L'élément <span class="main__sortedElement__elName">{{ sortedElement.name }}</span> a été tiré au sort !</p>
@@ -60,6 +61,10 @@ export default {
             /* Get a random element from the elements array and assigne it to the sortedElement object presents in data() */
             this.sortedElement = this.elements[Math.floor(Math.random()* this.elements.length)];
         },
+        emptyElementsArray() {
+            // Empty completely the elements array
+            this.elements = [];
+        }
     },
 }
 </script>
@@ -143,6 +148,17 @@ export default {
             &:hover {
                 cursor: pointer;
                 color: $black;
+            }
+        }
+
+        &__suppressAll {
+            text-align: center;
+            margin: $gutter 0;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+                color: darken($black, 100%);
             }
         }
 
