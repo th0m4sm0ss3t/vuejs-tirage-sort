@@ -11,7 +11,7 @@
 
         <section class="main__addedElements">
             <ul class="main__addedElements__ul">
-                <li v-for="element in elements" :key="element.id" class="main__addedElements__el">{{ element.name }} <span class="main__addedElements__remove">⤬</span></li>
+                <li v-for="element in elements" :key="element.id" class="main__addedElements__el">{{ element.name }} <span class="main__addedElements__remove" @click="removeElement">⤬</span></li>
             </ul>
         </section>
         <button class="main__btn">Tirer au sort</button>
@@ -46,6 +46,13 @@ export default {
 
             // Empty the input after submiting 
             this.addedElement = "";
+        },
+        removeElement() {
+            // remove the clicked element from the elements array
+            this.elements.pop({
+                id: this.addedElement,
+                name : this.addedElement
+            });
         },
         sortsElements() {
 
