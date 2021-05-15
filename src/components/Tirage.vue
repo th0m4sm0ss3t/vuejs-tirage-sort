@@ -14,7 +14,8 @@
                 <li v-for="element in elements" :key="element.id" class="main__addedElements__el">{{ element.name }} <span class="main__addedElements__remove" @click="removeElement">⤬</span></li>
             </ul>
         </section>
-        <button class="main__btn">Tirer au sort</button>
+        <button class="main__btn" @click="sortsElements">Tirer au sort</button>
+        <p class="main__sortedElement" v-if="sortedElement.name">L'élément <span class="main__sortedElement__elName">{{ sortedElement.name }}</span> a été tiré au sort !</p>
     </main>
 </template>
 
@@ -29,6 +30,7 @@ export default {
             elements: [],
             addedElement: "",
             futurAddedElementId: 1,
+            sortedElement: {},
         }
     },
     methods: {
@@ -55,7 +57,8 @@ export default {
             });
         },
         sortsElements() {
-
+            /* Get a random element from the elements array and assigne it to the sortedElement object presents in data() */
+            this.sortedElement = this.elements[Math.floor(Math.random()* this.elements.length)];
         },
     },
 }
@@ -143,6 +146,17 @@ export default {
             }
         }
 
+    }
+
+    &__sortedElement {
+        text-align: center;
+        margin-top: $gutter * 4;
+
+        &__elName {
+            color: $hotPink;
+            font-weight: bold;
+            font-size: $title-size / 2;
+        }
     }
 }
 
