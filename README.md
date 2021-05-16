@@ -1,24 +1,13 @@
 # vue-js-tirage-sort
 
-## Project setup
-```
-npm install
-```
+## English
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This app is a list draw. 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+It allows the user to add as many element as they want. The app sorts 1 element from the list. The user can delete 1 one element as well as all the elements stocked in the list.
 
-### Lints and fixes files
-```
-npm run lint
-```
+## French
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Cette application permet de tirer au sort 1 élément d'une liste rentrée préalablement par l'utilisateur / l'utilisatrice. Il est possible de supprimer 1 seul élément de cette liste ou bien de supprimer l'entièreté des éléments de la liste.
+
+![demo of the app](src/assets/tirage-sort-gif.gif)
